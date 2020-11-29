@@ -13,5 +13,15 @@ namespace Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Indexa()
+        {
+            return View();
+        }
+
+        public ActionResult Blog()
+        {
+            return View();
+        }
     }
 }
