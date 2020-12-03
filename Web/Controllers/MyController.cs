@@ -19,6 +19,16 @@ namespace Web.Controllers
             return View();
         }
 
+        public ActionResult Course()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
         public ActionResult Blog()
         {
             return View();

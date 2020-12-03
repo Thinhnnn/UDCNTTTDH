@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Hosting | Template</title>
+    <title> IT_02 | Web dạy học</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -60,21 +60,22 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li><a href="#">Home</a></li>
-                                                <li><a href="#">Packages</a></li>
-                                                <li><a href="#">Help</a></li>
+                                                <li><a href="/My/Index">Trang chủ</a></li>
+                                                <li hidden><a href="#">Khóa học</a></li>
+                                                <li hidden><a href="#">Help</a></li>
                                                 <li>
-                                                    <a href="/My/Blog">Blog</a>
+                                                    <a href="/My/Course">Khóa học</a>
                                                     <ul class="submenu">
-                                                        <li><a href="/My/Blog">Blog</a></li>
-                                                        <li><a href="#">Blog Details</a></li>
-                                                        <li><a href="#">Element</a></li>
+                                                        <li><a href="/My/Course">Các khóa học</a></li>
+                                                        <li><a href="#">Khóa học của tôi</a></li>
+                                                        <li hidden><a href="#">Element</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Contact</a></li>
+                                                <li><a href="/My/Contact">Liên hệ</a></li>
                                                 <!-- Button -->
-                                                <li class="button-header margin-left "><a href="/Login/Register" class="btn">Sign Up</a></li>
-                                                <li class="button-header"><a href="/Login/Login" class="btn3">Sign In</a></li>
+                                                <li class="button-header margin-left "><a href="/Login/Register" class="btn">Đăng ký</a></li>
+                                                @*<li class="button-header"><a href="/Login/Login" class="btn3">Sign In</a></li>*@
+                                                <li><a href="/Login/Login">Đăng nhập</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -95,7 +96,7 @@
         @RenderBody()
     </main>
     <footer>
-        <div class="footer-wrappr " data-background="assets/img/gallery/footer-bg.png">
+        <div class="footer-wrappr " style="background-color:indigo" @*data-background="~/MyAssets/assets/img/gallery/footer-bg.png"*@>
             <div class="footer-area footer-padding ">
                 <div class="container">
                     <div class="row d-flex justify-content-between">
