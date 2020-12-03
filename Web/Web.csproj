@@ -346,6 +346,8 @@
     <Content Include="Views\Shared\_loginLayout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\My\Course.cshtml" />
+    <Content Include="Views\My\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
