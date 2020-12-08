@@ -3,6 +3,11 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_loginLayout.cshtml";
 }
+<!-- Báo lỗi -->
+@if (ViewBag.Error != null)
+{
+    <script>alert(@ViewBag.Error.ToString())</script>
+}
 <!-- Login Admin -->
 <form class="form-default" action="/Login/Login" method="POST">
 
@@ -14,11 +19,25 @@
         <h2>Đăng nhập</h2>
         <div class="form-input">
             <label for="name">Email</label>
-            <input type="email" name="email" placeholder="Email">
+            @if (ViewBag.EmailError != null)
+            {
+                <input type="email" name="email" placeholder="* @ViewBag.EmailError">
+            }
+            else
+            {
+                <input type="email" name="email" placeholder="Email">
+            }
         </div>
         <div class="form-input">
             <label for="name">Mật khẩu</label>
-            <input type="password" name="password" placeholder="Mật khẩu">
+            @if (ViewBag.PasswordError != null)
+            {
+                <input type="password" name="password" placeholder="* @ViewBag.PasswordError">
+            }
+            else
+            {
+                <input type="password" name="password" placeholder="Mật khẩu">
+            }
         </div>
         <div class="form-input pt-30">
             <input type="submit" name="submit" value="Đăng nhập">

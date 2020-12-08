@@ -28,6 +28,37 @@
 <section class="pricing-card-area pricing-card-area2 fix">
     <div class="container">
         <div class="row">
+            @foreach (var course in ViewBag.Course)
+            {
+                if (course.Status == true)
+                {
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
+                        <div class="single-card text-center mb-30">
+                            <div class="card-top">
+                                <img src="~/MyAssets/assets/img/icon/price3.svg" alt="">
+                                <h4>@course.NameOfTheCourse</h4>
+                                <p hidden>Nội dung khóa học</p>
+                            </div>
+                            <div class="card-mid">
+                                <h4 hidden>$4.67 <span>/ month</span></h4>
+                            </div>
+                            <div class="card-bottom">
+                                <ul>
+                                    @foreach (var lesson in ViewBag.Lesson)
+                                    {
+                                        if (lesson.IdCourse == course.Id && lesson.Status == true)
+                                        {
+                                            <li>@lesson.NameOfTheLesson</li>
+                                        }
+                                    }
+                                </ul>
+                                <a href="#" class="borders-btn">Tham gia</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
                 <div class="single-card text-center mb-30">
                     <div class="card-top">
