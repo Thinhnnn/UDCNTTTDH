@@ -8,6 +8,7 @@ namespace Web.Controllers
 {
     public class MyController : Controller
     {
+        public MyEntities db = new MyEntities();    //khởi tạo biến load database lên
         // GET: My
         public ActionResult Index()
         {
@@ -21,6 +22,12 @@ namespace Web.Controllers
 
         public ActionResult Course()
         {
+            var course = from c in db.COURSEs
+                        select c;
+            var lesson = from l in db.LESSONs
+                         select l;
+            ViewBag.Course = course.ToList();
+            ViewBag.Lesson = lesson.ToList();
             return View();
         }
 

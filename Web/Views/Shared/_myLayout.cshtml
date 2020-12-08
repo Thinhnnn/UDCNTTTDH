@@ -73,9 +73,17 @@
                                                 </li>
                                                 <li><a href="/My/Contact">Liên hệ</a></li>
                                                 <!-- Button -->
-                                                <li class="button-header margin-left "><a href="/Login/Register" class="btn">Đăng ký</a></li>
-                                                @*<li class="button-header"><a href="/Login/Login" class="btn3">Sign In</a></li>*@
-                                                <li><a href="/Login/Login">Đăng nhập</a></li>
+                                                @if (Session["UserName"] != null)
+                                                {
+                                                    <li class="button-header margin-left "><a href="#" class="btn">@Session["UserName"]</a></li>
+                                                    <li><a href="/Login/Logout">Đăng Xuất</a></li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="button-header margin-left "><a href="/Login/Register" class="btn">Đăng ký</a></li>
+                                                    @*<li class="button-header"><a href="/Login/Login" class="btn3">Sign In</a></li>*@
+                                                    <li><a href="/Login/Login">Đăng nhập</a></li>
+                                                }
                                             </ul>
                                         </nav>
                                     </div>
