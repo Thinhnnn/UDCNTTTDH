@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COURSE">
           <Key>
             <PropertyRef Name="Id" />
@@ -21,9 +21,10 @@
           <Property Name="IdCourse" Type="int" Nullable="false" />
           <Property Name="NameOfTheLesson" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LinkVideo" Type="varchar(max)" Nullable="false" />
-          <Property Name="LessonContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LessonContent" Type="nvarchar(max)" />
           <Property Name="LinkDrive" Type="varchar(max)" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="IndexNumber" Type="int" />
         </EntityType>
         <EntityType Name="REGISTER">
           <Key>
@@ -62,8 +63,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -83,9 +83,10 @@
           <Property Name="IdCourse" Type="Int32" Nullable="false" />
           <Property Name="NameOfTheLesson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LinkVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LessonContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LessonContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LinkDrive" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="IndexNumber" Type="Int32" />
         </EntityType>
         <EntityType Name="REGISTER">
           <Key>
@@ -142,6 +143,7 @@
           <EntitySetMapping Name="LESSONs">
             <EntityTypeMapping TypeName="MyModel.LESSON">
               <MappingFragment StoreEntitySet="LESSON">
+                <ScalarProperty Name="IndexNumber" ColumnName="IndexNumber" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCourse" ColumnName="IdCourse" />
                 <ScalarProperty Name="NameOfTheLesson" ColumnName="NameOfTheLesson" />

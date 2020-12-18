@@ -53,6 +53,7 @@ namespace Web.Controllers
             else
             {
                 Session["UserName"] = user[0].FULLNAME;
+                Session["UserID"] = user[0].ID;
                 return RedirectToAction("Index", "My");
             }
         }

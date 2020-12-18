@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "MyCourse";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+<!-- Slider Area Start-->
+<div class="slider-area slider-bg ">
+    <!-- Single Slider -->
+    <div class="single-slider d-flex align-items-center slider-height2">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-8 col-lg-9 col-md-12 ">
+                    <div class="hero__caption hero__caption2 text-center">
+                        <h1 data-animation="fadeInLeft" data-delay=".6s ">Các khóa học đã đăng ký</h1>
+                        @foreach (var course in ViewBag.Course)
+                        {
+                            foreach (var ID in ViewBag.RegisteredCourseID)
+                            {
+                                if (course.Id == ID)
+                                {
+                                    <a href="/My/CourseDetail/@course.Id"><h2 class="mb-40" style="color:antiquewhite">@course.NameOfTheCourse</h2></a>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slider Shape -->
+    <div class="slider-shape d-none d-lg-block">
+        <img class="slider-shape1" src="~/MyAssets/assets/img/hero/top-left-shape.png" alt="">
+    </div>
+</div>
+<!-- Slider Area End -->

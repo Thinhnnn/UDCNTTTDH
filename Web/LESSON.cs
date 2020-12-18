@@ -21,5 +21,6 @@ namespace Web
         public string LessonContent { get; set; }
         public string LinkDrive { get; set; }
         public bool Status { get; set; }
+        public Nullable<int> IndexNumber { get; set; }
     }
 }
