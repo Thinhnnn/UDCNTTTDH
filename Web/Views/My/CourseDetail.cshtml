@@ -8,35 +8,39 @@
     <!-- Single Slider -->
     <div class="single-slider d-flex align-items-center slider-height2">
         <div class="col-md-7" style="margin-left:20px">
-            <h1 style="color:aliceblue;margin-bottom:10px">Khóa học C++</h1>
-            <iframe class="col-md-12" style="height:64vh" src="https://www.youtube.com/embed/WS05AU6YYm4"></iframe>
+            <h1 style="color:aliceblue;margin-bottom:10px">Lập trình C++   <i>(Nguồn: Howkteam.vn)</i></h1>
+            <iframe class="col-md-12" style="height:64vh" src="@ViewBag.SelectedLesson[0].LinkVideo"></iframe>
         </div>
-        <div class="col-md-4" style="background-color:aliceblue;margin-right:20px;margin-left:10px;height:70vh">
-            <table style="margin-top:30px;font-size:20px;color:black" class="pre-scrollable">
+        <div class="col-md-4" style="background-color:aliceblue;margin-right:20px;margin-left:10px;height:450px;overflow-y:scroll">
+            <table style="margin-top:30px;font-size:20px;color:black;" class="pre-scrollable">
                 <tr>
-                    <th>Đang phát: Bài 1: Tổng quan khóa học</th>
+                    <th>Đang phát: Bài @ViewBag.SelectedLesson[0].IndexNumber: @ViewBag.SelectedLesson[0].NameOfTheLesson</th>
                 </tr>
                 <tr>
                     <td><hr /></td>
                 </tr>
-                <tr>
-                    <td><a href="#" style="color:darkslategray">Bài 1: Tổng quan khóa học</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#" style="color:darkslategray">Bài 2: Giới thiệu về C++</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#" style="color:darkslategray">Bài 3: Xây dựng chương trình C++ đầu tiên</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#" style="color:darkslategray">Bài 4: Cấu trúc một chương trình C++</a></td>
-                </tr>
+                @foreach (var lesson in ViewBag.Lesson)
+                {
+                    <tr>
+                        <td><a href="/My/CourseDetail/@Session["Course"].ToString()/@lesson.Id" style="color:darkslategray">Bài @lesson.IndexNumber: @lesson.NameOfTheLesson</a></td>
+                    </tr>
+                }
             </table>
         </div>
     </div>
+    <div class="single-slider d-flex align-items-center slider-height2">
+        <div class="col-md-10" style="margin-left:100px">
+            <iframe align="middle" style="height:120vh;width:80vw" src="@ViewBag.SelectedLesson[0].LinkDrive"></iframe>
+        </div>
+    </div>
+    <div style="text-align:center;height:50px;background-color: aliceblue; margin-right: 100px; margin-left: 100px;padding-top:5px">
+        <h4>Xem bài giảng gốc của Howkteam về @ViewBag.SelectedLesson[0].NameOfTheLesson <a target="_blank" href="@ViewBag.SelectedLesson[0].LessonContent" style="color:blue"><u>tại đây</u></a></h4>
+        <h4>Xem file nội dung bài giảng về @ViewBag.SelectedLesson[0].NameOfTheLesson <a target="_blank" href="@ViewBag.SelectedLesson[0].LinkDrive" style="color:blue"><u>tại đây</u></a></h4>
+    </div>
+
     <!-- Slider Shape -->
     <div class="slider-shape d-none d-lg-block">
         <img class="slider-shape1" src="~/MyAssets/assets/img/hero/top-left-shape.png" alt="">
     </div>
 </div>
-<!-- Slider Area End -->
+                <!-- Slider Area End -->
