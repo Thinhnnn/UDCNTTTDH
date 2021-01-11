@@ -51,8 +51,16 @@
                                             <li>@lesson.NameOfTheLesson</li>
                                         }
                                     }
+                                    <li>...</li>
                                 </ul>
-                                <a href="#" class="borders-btn">Tham gia</a>
+                                @if (ViewBag.RegisteredCourseID.Count != 0)
+                                {
+                                    <a href="#" class="borders-btn">Đã tham gia</a>
+                                }
+                                else
+                                {
+                                    <a href="/My/JoinCourse/@course.Id" class="borders-btn">Tham gia</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -63,7 +71,7 @@
                 <div class="single-card text-center mb-30">
                     <div class="card-top">
                         <img src="~/MyAssets/assets/img/icon/price2.svg" alt="">
-                        <h4>Lập trình D++</h4>
+                        <h4>Lập trình Python</h4>
                         <p hidden>Nội dung khóa học</p>
                     </div>
                     <div class="card-mid">
@@ -75,11 +83,11 @@
                             <li>Sử dụng biến</li>
                             <li>Sử dụng hàm</li>
                             <li>Vòng lặp</li>
-                            <li hidden>Câu lệnh rẽ nhánh</li>
+                            <li>...</li>
                             <li hidden>Sử dụng mảng</li>
                             </br>
                         </ul>
-                        <a href="#" class="borders-btn">Tham gia</a>
+                        <a href="#" class="borders-btn">Đang phát triển</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +95,7 @@
                 <div class="single-card text-center mb-30">
                     <div class="card-top">
                         <img src="~/MyAssets/assets/img/icon/price3.svg" alt="">
-                        <h4>Lập trình E++</h4>
+                        <h4>Lập trình C#</h4>
                         <p hidden>Nội dung khóa học</p>
                     </div>
                     <div class="card-mid">
@@ -99,11 +107,12 @@
                             <li>Sử dụng biến</li>
                             <li>Sử dụng hàm</li>
                             <li>Vòng lặp</li>
+                            <li>...</li>
                             <li hidden>Câu lệnh rẽ nhánh</li>
                             <li hidden>Sử dụng mảng</li>
                             </br>
                         </ul>
-                        <a href="#" class="borders-btn">Tham gia</a>
+                        <a href="#" class="borders-btn">Đang phát triển</a>
                     </div>
                 </div>
             </div>

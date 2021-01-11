@@ -12,7 +12,7 @@
                 <div class="col-xl-8 col-lg-9 col-md-12 ">
                     <div class="hero__caption hero__caption2 text-center">
                         <h1 data-animation="fadeInLeft" data-delay=".6s ">Các khóa học đã đăng ký</h1>
-                        @foreach (var course in ViewBag.Course)
+                        @*@foreach (var course in ViewBag.Course)
                         {
                             foreach (var ID in ViewBag.RegisteredCourseID)
                             {
@@ -21,14 +21,80 @@
                                     <a href="/My/CourseDetail/@course.Id"><h2 class="mb-40" style="color:antiquewhite">@course.NameOfTheCourse</h2></a>
                                 }
                             }
-                        }
+                        }*@
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
     <!-- Slider Shape -->
+    <!--? Pricing Card Start -->
+    <section class="pricing-card-area pricing-card-area2 fix">
+        <div class="container">
+            <div class="row">
+                @foreach (var course in ViewBag.Course)
+                {
+                    foreach (var ID in ViewBag.RegisteredCourseID)
+                    {
+                        if (course.Id == ID)
+                        {
+                            if (course.Status == true)
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
+                                    <div class="single-card text-center mb-30">
+                                        <div class="card-top">
+                                            <img src="~/MyAssets/assets/img/icon/price3.svg" alt="">
+                                            <h4>@course.NameOfTheCourse</h4>
+                                            <p hidden>Nội dung khóa học</p>
+                                        </div>
+                                        <div class="card-mid">
+                                            <h4 hidden>$4.67 <span>/ month</span></h4>
+                                        </div>
+                                        <div class="card-bottom">
+                                            <ul>
+                                                @foreach (var lesson in ViewBag.Lesson)
+                                                {
+                                                    if (lesson.IdCourse == course.Id && lesson.Status == true)
+                                                    {
+                                                        <li>@lesson.NameOfTheLesson</li>
+                                                    }
+                                                }
+                                                <li>...</li>
+                                            </ul>
+                                            <a href="/My/CourseDetail/@course.Id/5" class="borders-btn">Xem bài giảng</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-md-6 col-sm-10">
+                                    <div class="single-card mb-30">
+                                        <div class="card-top text-center">
+                                            <h4>Giới thiệu khóa học</h4>
+                                        </div>
+                                        <div class="card-bottom text-left" style="margin-left:30px;margin-right:30px">
+                                            <p>Hiện nay, C++ đã là cái tên rất quen thuộc trong ngành lập trình. Mặc dù C++ là ngôn ngữ lập trình đã ra đời khá lâu, nhưng không phải ai cũng có cơ hội để tìm hiểu về nó.</p>
+                                            <p>Vì vậy, Kteam đã xây dựng lên khóa học LẬP TRÌNH C++ CĂN BẢN để cung cấp một lượng kiến thức về ngôn ngữ C++ nói riêng, và các khái niệm khác trong lập trình nói chung.</p>
+                                            <p>Nội dung khóa học sẽ được phân tách một cách chi tiết, nhằm giúp các bạn dễ hiểu và thực hành được ngay.</p>
+                                        </div>
+                                        <div class="card-top text-center">
+                                            <h4>Đối tượng tham gia</h4>
+                                        </div>
+                                        <div class="card-bottom text-left" style="margin-left:30px;margin-right:30px">
+                                            <p>Serial dành cho những bạn chưa có bất kỳ kiến thức gì về lập trình, hoặc những bạn mất căn bản muốn lấy lại kiến thức nền tảng lập trình, cụ thể là C++.</p>
+                                            <p>Thời lượng mỗi video từ 3 – 30 phút nhằm chia nhỏ quá trình thực hiện, giúp bạn dễ tiếp thu và ứng dụng source code hỗ trợ từ thư viện Howkteam.com</p>
+                                        </div>
+                                        <div class="card-bottom text-right" style="margin-right:20px">
+                                            <h4><i>Nguồn: Howkteam.vn</i></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Card End -->
     <div class="slider-shape d-none d-lg-block">
         <img class="slider-shape1" src="~/MyAssets/assets/img/hero/top-left-shape.png" alt="">
     </div>

@@ -66,7 +66,30 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Register(FormCollection fc)
         {
-            return RedirectToAction("Index", "My");
+            string email = fc["email"].ToString();
+            string password = fc["password"].ToString();
+            string re_password = fc["re_password"].ToString();
+            var user = (from u in db.USERs
+                        where u.EMAIL == email
+                        select u).ToList();          //lấy thông tin tài khoản có email giống
+            if (user.Count != 0)
+            {
+                ViewBag.EmailError = "Email đã tồn tại!";
+                return View();
+            }
+            //kiểm tra pass nhập lại
+            if (password != re_password)
+            {
+                ViewBag.PasswordError = "Password nhập lại không khớp";
+                return View();
+            }
+            string queryCommand = "INSERT INTO [dbo].[USER] ([FULLNAME],[EMAIL],[PASSWORD],[ISATEACHER],[STATUS])"+
+                                 " VALUES " +
+                                "(N'" + fc["name"].ToString() + "', '" + fc["email"].ToString() +
+                                "', '" + fc["password"].ToString() +"', 0, 1)";
+            var query = db.Database.ExecuteSqlCommand(queryCommand);
+            ViewBag.Success = "Đăng ký thành công";
+            return View();
         }
     }
 }
